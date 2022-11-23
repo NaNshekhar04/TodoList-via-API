@@ -10,7 +10,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: aliceblue;
+  color: black;
+  background-color: beige;
 }
 
 /* Navbar styles */
@@ -21,7 +22,7 @@ body {
   height: 65px;
   color: white;
   padding: 10px;
-  background-color: lightgrey;
+  background-color: black;
 }
 
 .header-title {
