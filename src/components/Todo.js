@@ -1,12 +1,17 @@
-import React from 'react'
+import React from "react";
 
-
-function Todo({ title, onAdd }) {
+function Todo({ id, title, onAdd, onDelete }) {
 
 
     const handleAddTodo = () => {
         onAdd()
     }
+
+
+    const handleDelete = () => {
+        onDelete(id);
+    }
+
 
     return (
         <div className='list'>
@@ -20,7 +25,7 @@ function Todo({ title, onAdd }) {
             <span>
                 <div className="buttons">
                     <button id='edit'>Edit</button>
-                    <button id='delete'>Delete</button>
+                    <button id='delete' onClick={handleDelete}>Delete</button>
                 </div>
             </span>
         </div>

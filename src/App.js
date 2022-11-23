@@ -47,6 +47,25 @@ function App() {
   }
 
 
+  const deleteTodo = (id) => {
+    fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
+      method: 'DELETE',
+    })
+      .then((res) => {
+        if (res.status !== 200) {
+          return
+        } else {
+          setTodos(todos.filter((todo) => {
+            return todo.id !== id;
+          }))
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+
 
   return (
     <div className="App">
@@ -59,6 +78,7 @@ function App() {
             key={todo.id}
             title={todo.title}
             onAdd={addTodo}
+            onDelete={deleteTodo}
           />
         })}
       </div>
