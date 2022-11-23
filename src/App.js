@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import AddTodoForm from "./components/AddTodoForm";
+import Todo from "./components/Todo";
 
 function App() {
   const [todos, setTodos] = useState([])
-
   useEffect(() => {
     getTodos();
   })
@@ -23,8 +23,11 @@ function App() {
       <Navbar />
       <AddTodoForm />
       <div className="listOfTodos">
-        {todos.map(todo=>{
-          return <div>{todo.title}</div>
+        {todos.map(todo => {
+          return <Todo
+            key={todo.id}
+            title={todo.title}
+          />
         })}
       </div>
     </div>
