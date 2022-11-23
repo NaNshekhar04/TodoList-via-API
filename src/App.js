@@ -1,8 +1,9 @@
-import {useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import AddTodoForm from "./components/AddTodoForm";
 
 function App() {
+  const [todos, setTodos] = useState([])
 
   useEffect(() => {
     getTodos();
@@ -12,6 +13,7 @@ function App() {
     fetch('https://jsonplaceholder.typicode.com/todos').then((result) => {
       result.json().then((res) => {
         console.log(res)
+        setTodos(res)
       })
     })
   }
@@ -20,6 +22,11 @@ function App() {
     <div className="App">
       <Navbar />
       <AddTodoForm />
+      <div className="listOfTodos">
+        {todos.map(todo=>{
+          return <div>{todo.title}</div>
+        })}
+      </div>
     </div>
   );
 }
