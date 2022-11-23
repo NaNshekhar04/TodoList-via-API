@@ -1,9 +1,14 @@
 import React from 'react'
 
-function AddTodoForm() {
+const AddTodoForm = ({addTodo}) => {
+
+
+  
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        addTodo(e.target.name.value);
+        e.target.name.value = "";
     }
     //FORM FOR ADDING YOUR TODO ITEM
     return (

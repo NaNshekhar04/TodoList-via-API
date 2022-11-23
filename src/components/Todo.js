@@ -1,12 +1,19 @@
 import React from 'react'
 
 
-function Todo({ title }) {
+function Todo({ title, onAdd }) {
+
+
+    const handleAddTodo = () => {
+        onAdd()
+    }
+
     return (
         <div className='list'>
             <div className="listItems">
                 <label>
                     <input type="checkbox" />
+                    {handleAddTodo}
                     {title}
                 </label>
             </div>
